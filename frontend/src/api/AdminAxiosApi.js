@@ -205,18 +205,19 @@ searchReplies: async (keyword, token) => {
 },
 
 // 🥨 문의 상태 변경
-updateStatus: async (inquiryNum, status, token) => {
-  try {
-    return await axios.put(`/admin/inquiry/${inquiryNum}?status=${status}`, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: 'Bearer ' + token,
-      },
-    });
-  } catch (error) {
-    throw error;
-  }
-},
+  updateStatus: async (inquiryNum, status, token) => {
+    try {
+      return await axios.put(`/admin/inquiry/${inquiryNum}?status=${status}`, null, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+    } catch (error) {
+      throw error;
+    }
+  },
+
 
 }
 
