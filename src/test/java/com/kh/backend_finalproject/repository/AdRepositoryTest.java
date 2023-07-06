@@ -19,7 +19,7 @@
 //
 //public class AdRepositoryTest {
 //    @Autowired
-//    AdRepository adRepository;
+//    AdRepository adRepository;fff
 //    PostRepository postRepository;
 //
 //    @Test
