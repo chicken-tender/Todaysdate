@@ -59,7 +59,6 @@ const RankDetail = styled.div`
   h2 {
     font-size: 1.2em;
     font-weight: 600;
-    line-height: 1.3em;
   }
   p {
     font-size: 0.8em;
