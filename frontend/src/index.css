@@ -1,0 +1,28 @@
+body {
+  font-family: "Pretendard", sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  letter-spacing: -0.5px;
+}
+* {
+  font-family: "Pretendard", sans-serif;
+}
+textarea:focus, input:focus {
+  /* outline: 1px solid #FF62AD; */
+  outline: none;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+:root {
+  --text-color: #2e2e2e;
+  --point-color: #FF62AD;
+  --hover-color: #FFF8FA;
+  --input-color: #F9F9F9;
+  --input-text-color: #818087;
+  --line-color: #eee;
+  --hover-extra-color: #66002F;
+}

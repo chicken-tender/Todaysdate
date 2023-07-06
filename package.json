@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "react-dnd": "14.0.2"
+  }
+}
