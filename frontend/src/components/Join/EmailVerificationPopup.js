@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
-import JoinAxiosApi from '../../api/JoinAxiosApi';
+import React from "react";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const PopupContainer = styled.div`
   position: fixed;
@@ -15,47 +14,33 @@ const PopupContainer = styled.div`
   border-radius: 10px;
   z-index: 9999;
   display: flex;
-  .wrapper {
-    display: flex;
-    justify-content: space-around;
-  }
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
   @media screen and (max-width: 768px) {
     width: 90%;
   }
-
 `;
 
-const PopupContent = styled.div`
-  width: 100%;
-  background-color: #fff;
-  padding: 10px 20px;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
+const PopupContent = styled.p`
+  font-size: 0.9rem;
 `;
 
 const PopupTitle = styled.h2`
-  margin-bottom: 0.6rem;
   font-size: 1.1rem;
   font-weight: 700;
-`;
-
-const PopupInput = styled.input`
-  width: 70%;
-  padding: 0.6rem;
-  border: 1px solid var(--line-color);
-  @media screen and (max-width: 768px) {
-    width: 70%;
-  }
+  align-self: flex-start;
+  padding: 2px 0 4px 0;
 `;
 
 const Divider = styled.div`
+  margin-top: -0.8rem;
   border-bottom: 1px solid #ccc;
-  margin-bottom: 1rem;
   width: 100%;
 `;
 
 const PopupButton = styled.button`
+  width: 20%;
   padding: 8px;
   border: none;
   border-radius: 4px;
@@ -78,69 +63,19 @@ const PopUpOverlay = styled.div`
   z-index: 200;
 `;
 
-const EmailVerificationPopup = ({ email }) => {
+const EmailVerificationPopup = () => {
   const navigate = useNavigate();
-  const [authKey, setAuthKey] = useState('');
-
-  const handleVerificationKeyChange = (event) => {
-    setAuthKey(event.target.value);
-  };
-
-  const verifyAuthKey = async (email, authKey) => {
-    try {
-      await JoinAxiosApi.confirmAuthKey(email, authKey);
-      console.log("🍒 인증 성공: ", email, authKey);
-      return true; 
-    } catch (error) {
-      console.error("😰 인증 실패: ",error);
-      return false; 
-    }
-  };
-  
-  const handleVerifyEmail = async () => {
-    if (!authKey) {
-      alert('인증키를 입력해 주세요.');
-      setAuthKey('');
-      return;
-    }
-  
-    try {
-      const response = await verifyAuthKey(email, authKey);
-      console.log(response)
-      if (response === true) {
-        onVerificationSuccess();
-      } else {
-        alert('인증키를 확인해 주세요.');
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  
-  const onVerificationSuccess = () => {
-    alert('인증되었습니다! 로그인해 주세요.');
-    setTimeout(() => {
-      navigate('/');
-    }, 1000);
-  };
 
   return (
     <>
       <PopUpOverlay>
         <PopupContainer>
+          <PopupTitle>🩷 환영합니다</PopupTitle>
+          <Divider />
           <PopupContent>
-            <PopupTitle>이메일 인증</PopupTitle>
-            <Divider />
-            <div className='wrapper'>
-              <PopupInput
-                type="text"
-                placeholder="인증 키를 입력하세요"
-                value={authKey}
-                onChange={handleVerificationKeyChange}
-              />
-              <PopupButton onClick={handleVerifyEmail}>인증하기</PopupButton>
-            </div>
+            회원가입을 완료하기 위해 이메일 인증을 진행해 주세요.
           </PopupContent>
+          <PopupButton onClick={() => navigate("/")}>확인</PopupButton>
         </PopupContainer>
       </PopUpOverlay>
     </>
