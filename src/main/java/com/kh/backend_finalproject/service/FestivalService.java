@@ -71,4 +71,47 @@ public class FestivalService {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
         return date.format(formatter);
     }
+
+    public String getImages(String contentId) {
+        try {
+            // API 요청 URL 생성
+            String url = "http://apis.data.go.kr/B551011/KorService1/detailImage1";
+
+            url += "?serviceKey=" + apiKey;
+            url += "&numOfRows=6";
+            url += "&pageNo=1";
+            url += "&MobileOS=ETC";
+            url += "&MobileApp=todaysDate";
+            url += "&_type=json";
+            url += "&imageYN=Y";
+            url += "&subImageYN=Y";
+            url += "&contentId=" + contentId;
+
+            // API 호출
+            HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+            connection.setRequestMethod("GET");
+            int responseCode = connection.getResponseCode();
+
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                // API 응답 데이터 읽기
+                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                StringBuilder responseBuilder = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    responseBuilder.append(line);
+                }
+                reader.close();
+
+                // API 응답 데이터 반환
+                return responseBuilder.toString();
+            } else {
+                log.error("API 요청에 실패했습니다. 응답 코드: {}", responseCode);
+            }
+        } catch (Exception e) {
+            log.error("API 요청 중 오류가 발생했습니다.", e);
+        }
+
+        return null;
+    }
+
 }
