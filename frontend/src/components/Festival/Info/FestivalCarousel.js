@@ -36,14 +36,9 @@ const Carousel = ({ contentId }) => {
   }, [contentId]);
 
   const fetchImages = async () => {
-    setIsLoading(true); 
+    setIsLoading(true);
     try {
-      const imageUrl = `/B551011/KorService1/detailImage1?MobileOS=ETC&MobileApp=todaysDate&_type=json&contentId=${contentId}&imageYN=Y&subImageYN=Y&numOfRows=6&pageNo=1&serviceKey=${process.env.REACT_APP_FESTIVAL_API_KEY}`;
-      const response = await axios.get(imageUrl, {
-        headers: {
-          "x-requested-with": "xhr",
-        },
-      });
+      const response = await axios.get(`/festival/images/${contentId}`);
 
       const {
         data: {
@@ -68,22 +63,22 @@ const Carousel = ({ contentId }) => {
       console.error('이미지 호출 에러!!', error);
     }
     finally {
-    setIsLoading(false); // API 호출 종료 시 로딩 상태 변경
-  }
+      setIsLoading(false); // API 호출 종료 시 로딩 상태 변경
+    }
   };
 
   const renderImages = () => {
     if (images.length === 1) {
       return (
-        <div>
-          <Image src={images[0].originimgurl} isSingle />
-        </div>
+          <div>
+            <Image src={images[0].originimgurl} isSingle />
+          </div>
       );
     } else {
       return images.map((image, index) => (
-        <div key={index}>
-          <Image src={image.originimgurl} />
-        </div>
+          <div key={index}>
+            <Image src={image.originimgurl} />
+          </div>
       ));
     }
   };
@@ -111,15 +106,15 @@ const Carousel = ({ contentId }) => {
   };
 
   return (
-    <CarouselContainer>
-      {isLoading ? ( // 로딩 상태에 따라 다른 컴포넌트 렌더링
-        <div>로딩 중...</div>
-      ) : (
-        <Slider {...settings}>
-          {renderImages()}
-        </Slider>
-      )}
-    </CarouselContainer>
+      <CarouselContainer>
+        {isLoading ? ( // 로딩 상태에 따라 다른 컴포넌트 렌더링
+            <div>로딩 중...</div>
+        ) : (
+            <Slider {...settings}>
+              {renderImages()}
+            </Slider>
+        )}
+      </CarouselContainer>
   );
 };
 
