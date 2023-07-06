@@ -14,17 +14,17 @@ const KakaoAxiosApi = {
   },
   // 🍉 결제 요청
   readyPay: async(token) => {
-    try {
-      return await axios.post("/payment/ready", {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + token,
-        },
-      });    
-    } catch (error) {
-      throw error;
-    }
-  },
+      try {
+        return await axios.post("/payment/ready", {}, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+        });
+      } catch (error) {
+        throw error;
+      }
+    },
   // 🍉 결제 성공
   successPay: async(pgToken, token) => {
     try {

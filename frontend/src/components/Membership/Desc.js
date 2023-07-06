@@ -98,6 +98,7 @@ const Desc = () => {
   const handlePaymentClick = async () => {
     if (isMembership === "MEMBERSHIP") {
       setIsOpen(true);
+      return;
     }
     try {
       const response = await KakaoAxiosApi.readyPay(token);
