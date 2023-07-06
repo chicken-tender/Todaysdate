@@ -25,7 +25,7 @@ const FestivalAPI = ({ children, page, contentId }) => {
       const startDate = format(new Date());
       const endDate = format(sixMonthsFromNow);
   
-      const url = `http://apis.data.go.kr/B551011/KorService1/searchFestival1?serviceKey=${process.env.REACT_APP_FESTIVAL_API_KEY}&numOfRows=99&&MobileOS=ETC&MobileApp=%08todaysDate&_type=json&listYN=Y&arrange=A&eventStartDate=${startDate}&eventEndDate=${endDate}`;
+      const url = `/B551011/KorService1/searchFestival1?serviceKey=${process.env.REACT_APP_FESTIVAL_API_KEY}&numOfRows=99&&MobileOS=ETC&MobileApp=%08todaysDate&_type=json&listYN=Y&arrange=A&eventStartDate=${startDate}&eventEndDate=${endDate}`;
 
       const response = await axios.get(url, {
         headers: {
