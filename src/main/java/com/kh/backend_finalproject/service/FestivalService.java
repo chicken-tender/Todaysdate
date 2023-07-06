@@ -30,7 +30,7 @@ public class FestivalService {
             String startDate = formatDate(LocalDate.now());
             String endDate = formatDate(LocalDate.now().plusMonths(6));
 
-            url += "?serviceKey=" + URLEncoder.encode(apiKey, "UTF-8");
+            url += "?serviceKey=" + apiKey;
             url += "&numOfRows=99";
             url += "&MobileOS=ETC";
             url += "&MobileApp=todaysDate";
