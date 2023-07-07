@@ -198,13 +198,11 @@ const ChatRoom = () => {
 
       ChatbotAxiosApi.createInquiry(chatbotDto, token)
         .then((response) => {
-          console.log("문의 접수 성공");
           setMessages([...updatedMessages, botMessage]);
           setIsEmail(false);
           setInquiryContent("");
         })
         .catch((error) => {
-          console.log("문의 접수 실패", error);
         });
     }
 

@@ -53,7 +53,6 @@ const FestivalAPI = ({ children, page, contentId }) => {
                     }))
                     : [];
 
-                console.log("데이터 가져오기:", extractedData);
                 setApiData(extractedData);
                 setTotalPages(Math.ceil(extractedData.length / 6));
             }
