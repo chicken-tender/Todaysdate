@@ -62,6 +62,7 @@ const RegionSelectBox = ({ value, onRegionUpdate }) => {
             label="관심 지역"
             value={value}
           >
+            <MenuItem value="NONE">없음</MenuItem>
             <MenuItem value="SEOUL">서울</MenuItem>
             <MenuItem value="INCHEON">인천</MenuItem>
             <MenuItem value="GYEONGGI">경기</MenuItem>
