@@ -102,7 +102,6 @@ const Desc = () => {
     }
     try {
       const response = await KakaoAxiosApi.readyPay(token);
-      console.log("🦜 : " + JSON.stringify(response.data, null, 2));
       if (response.data) {
         let a = document.createElement("a");
         a.href = response.data.next_redirect_pc_url;
@@ -116,7 +115,6 @@ const Desc = () => {
       const newToken = Functions.getAccessToken();
       if (newToken !== token) {
         const response = await KakaoAxiosApi.readyPay(token);
-        console.log("🦜 : " + response.data);
       }
     }
   };

@@ -66,7 +66,6 @@ const AlarmDropdown = () => {
     const getPushList = async () => {
       try {
         const response = await HomeAxiosApi.pushList(token);
-        console.log("🦊 : " + JSON.stringify(response.data, null, 2));
         setPushes(response.data);
       } catch (error) {
         console.error(error);

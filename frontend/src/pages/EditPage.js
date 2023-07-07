@@ -146,16 +146,6 @@ const EditPage = () => {
     setPreviewImgUrl(urls.split(","));
   };
 
-  // 👞 테스트용!!!
-  // useEffect(() => {
-  //   console.log("🍉 상세 지역 :");
-  //   pins.map((pin) => console.log(pin));
-  // }, [pins]);
-
-  // useEffect(() => {
-  //   console.log("🦜 : " + JSON.stringify(post.placeTag));
-  // }, [post.placeTag]);
-
   const handleClick = async () => {
     try {
       // pins routeNum 기준 중복되면 삭제 해야 함.

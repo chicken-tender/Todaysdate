@@ -112,7 +112,6 @@ const PostHeader = ({ postData, userId, postId }) => {
           postId,
           token
         );
-        console.log("👠 : " + JSON.stringify(response.data, null, 2));
         setIsBookmarked(response.data.isBookmarked);
         setFolderName(response.data.folderName);
       } catch (error) {}

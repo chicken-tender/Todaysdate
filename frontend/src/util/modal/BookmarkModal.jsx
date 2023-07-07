@@ -85,7 +85,6 @@ const BookmarkModal = ({ open, handleClose, addFolder, postId, handleBookmark = 
     const addBookmark = async () => {
       try {
         const response = await HomeAxiosApi.addBookmark(postId, folderName, token);
-        console.log("💀 : " + response.data);
         if (response.data === '북마크 추가 성공 ❤️') {
           handleClose(true);
           handleBookmark(postId);
@@ -95,7 +94,6 @@ const BookmarkModal = ({ open, handleClose, addFolder, postId, handleBookmark = 
         const newToken = Functions.getAccessToken();
         if (newToken !== token) {
           const response = await HomeAxiosApi.addBookmark(postId, folderName, token);
-          console.log(response.data);
           if (response.data === '북마크 추가 성공 ❤️') {
             handleClose(true);
             handleBookmark(postId);

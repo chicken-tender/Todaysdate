@@ -74,7 +74,6 @@ const ReportModalReply = ({ open, handleClose, userNum }) => {
 
     try {
       const response = await ReportAxiosApi.reportUser(reportRequestDto, token);
-      console.log("🎄 : " + response.data);
       if (response.data === "신고가 접수되었습니다.🫡") {
         alert("신고가 정상적으로 접수되었습니다.");
       }
@@ -86,7 +85,6 @@ const ReportModalReply = ({ open, handleClose, userNum }) => {
           reportRequestDto,
           token
         );
-        console.log("🎄 : " + response.data);
         if (response.data === "신고가 접수되었습니다.🫡") {
           alert("신고가 정상적으로 접수되었습니다.");
         }

@@ -60,7 +60,6 @@ const ReplyWrite = ({ postData, setReplies }) => {
         replyUserDto,
         token
       );
-      console.log("🍔 : " + response.data);
       if (response.data === true) {
         setIsOpen(true);
         const newReply = await PostAxiosApi.viewReply(postData.postId, token);
@@ -78,7 +77,6 @@ const ReplyWrite = ({ postData, setReplies }) => {
           replyUserDto,
           newToken
         );
-        console.log("🍔 : " + response.data);
         if (response.data === true) {
           setIsOpen(true);
           const newReply = await PostAxiosApi.viewReply(postData.postId, token);

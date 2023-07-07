@@ -164,7 +164,6 @@ const CityPost = ({ selectedCity }) => {
       let response;
       if (!selectedCity) {
         response = await HomeAxiosApi.allPosts(token);
-        console.log("🐸 : " + JSON.stringify(response.data, null, 2));
       } else {
         response = await HomeAxiosApi.regionAllPosts(selectedCity, token);
       }
@@ -252,7 +251,6 @@ const CityPost = ({ selectedCity }) => {
   const deleteBlock = async (id, token) => {
     try {
       const response = await ReportAxiosApi.deleteBlockUser(id, token);
-      console.log("🧢🧢 : " + response.data);
       if (response.data === true) {
         getPosts();
       }

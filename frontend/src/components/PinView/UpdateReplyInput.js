@@ -77,7 +77,6 @@ const UpdateReplyInput = ({
         replyUserDto,
         token
       );
-      console.log("🍔 : " + response.data);
       if (response.data === "댓글 수정 성공! ❤️") {
         setIsOpen(true);
         const updatedReplies = replies.map((r) =>
@@ -97,7 +96,6 @@ const UpdateReplyInput = ({
           replyUserDto,
           token
         );
-        console.log("🍔 : " + response.data);
         if (response.data === "댓글 수정 성공! ❤️") {
           setIsOpen(true);
           const updatedReplies = replies.map((r) =>

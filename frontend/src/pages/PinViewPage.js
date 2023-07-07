@@ -23,7 +23,6 @@ const PinViewPage = () => {
     const getPostView = async () => {
       try {
         const response = await PostAxiosApi.viewPost(postId, token);
-        console.log("🦜 : " + JSON.stringify(response.data, null, 2));
         setPostData(response.data);
         SetShowUpdateDelete(response.data.pfImg === userPfImg);
       } catch (error) {
@@ -31,7 +30,6 @@ const PinViewPage = () => {
         const newToken = Functions.getAccessToken();
         if (newToken !== token) {
           const response = await PostAxiosApi.viewPost(postId, token);
-          console.log("🦜 : " + JSON.stringify(response.data, null, 2));
           setPostData(response.data);
           SetShowUpdateDelete(response.data.pfImg === userPfImg);
         }

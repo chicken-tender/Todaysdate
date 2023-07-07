@@ -28,7 +28,6 @@ const KakaoCallback = () => {
       try {
         const response = await KakaoAxiosApi.successPay(pgToken, token);
         const { item_name, created_at, amount: { total } } = response.data;
-        console.log("🐓 : " + JSON.stringify(response.data, null, 2));
         navigate("/membership/success", { state: { paymentData: { item_name, created_at, total } } });
       } catch (error) {
         console.error(error);

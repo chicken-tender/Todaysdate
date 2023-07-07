@@ -87,7 +87,6 @@ const BlogResult = ({ selectedTag, firstPlaceTag }) => {
 
           if (response.ok) {
             const data = await response.json();
-            console.log("💩 : " + JSON.stringify(data.documents, null, 2));
             setBlogResults(data.documents);
           } else {
             console.error("실패 : ", response.status, response.statusText);
@@ -113,7 +112,6 @@ const BlogResult = ({ selectedTag, firstPlaceTag }) => {
 
           if (response.ok) {
             const data = await response.json();
-            console.log("💩 : " + JSON.stringify(data.documents, null, 2));
             setBlogResults(data.documents);
           } else {
             console.error("실패 : ", response.status, response.statusText);

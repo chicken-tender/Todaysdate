@@ -49,7 +49,6 @@ const MemberDropDown = () => {
     const getProfileImg = async () => {
       try {
         const response = await HomeAxiosApi.userInfo(token);
-        console.log("🐓 : " + JSON.stringify(response.data, null, 2));
         setIsLogin(true);
         setUserPfImg(response.data.pfImg);
         setIsMembership(response.data.isMembership);
