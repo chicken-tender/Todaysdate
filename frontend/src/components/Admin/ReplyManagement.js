@@ -150,7 +150,6 @@ useEffect(() => {
   const handleCheckboxChange = (event, id) => {
     if (event.target.checked) {
       setSelectedReplies((prevSelected) => [...prevSelected, id]);
-      console.log(selectedreplies);
     } else {
       setSelectedReplies((prevSelected) => prevSelected.filter((replyId) => replyId !== id));
     }
@@ -174,7 +173,6 @@ useEffect(() => {
       alert('댓글이 삭제되었습니다.');
     } catch (error) {
       await Functions.handleApiError(error);
-      console.log('댓글 삭제 실패:', error);
     }
     setShowPopup(false); 
   };

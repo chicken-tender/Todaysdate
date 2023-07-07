@@ -159,7 +159,6 @@ useEffect(() => {
 const handleCheckboxChange = (event, id) => {
   if (event.target.checked) {
     setSelectedPosts((prevSelected) => [...prevSelected, id]);
-    console.log(selectedPosts);
   } else {
     setSelectedPosts((prevSelected) => prevSelected.filter((postId) => postId !== id));
   }
@@ -167,7 +166,6 @@ const handleCheckboxChange = (event, id) => {
 
   const handleDeletePosts = () => {
       if (selectedPosts.length === 0) {
-        console.log('선택된 게시글이 없습니다.');
         return;
       }
       setShowPopup(true); // 팝업 표시
@@ -186,7 +184,6 @@ const handleCheckboxChange = (event, id) => {
       alert('게시글이 삭제되었습니다.');
     } catch (error) {
       await Functions.handleApiError(error);
-      console.log('게시글 삭제 실패:', error);
     }
     setShowPopup(false); 
   };

@@ -119,7 +119,6 @@ const AdManagement = () => {
   const handleCheckboxChange = (event, adNum) => {
     if (event.target.checked) {
       setSelectedAds((prevSelected) => [...prevSelected, adNum]);
-      console.log(selectedAds);
     } else {
       setSelectedAds((prevSelected) => prevSelected.filter((adId) => adId !== adNum));
     }

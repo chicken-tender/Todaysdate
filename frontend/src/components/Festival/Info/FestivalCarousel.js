@@ -57,7 +57,6 @@ const Carousel = ({ contentId }) => {
         }));
 
         setImages(extractedImages);
-        console.log('이미지 가져오기ㅠㅠ', extractedImages);
       }
     } catch (error) {
       console.error('이미지 호출 에러!!', error);

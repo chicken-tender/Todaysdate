@@ -106,7 +106,6 @@ const UserManagement = () => {
         if (newToken !== token) {
           const response = await AdminAxiosApi.getAllUsers(newToken);
           setUsers(response.data);
-          console.log('회원가져오기 실패', error);
         }
       }
     };
@@ -126,7 +125,6 @@ const UserManagement = () => {
         setUsers(response.data);
       } catch (error) {
         await Functions.handleApiError(error);
-        console.log('회원 검색 실패:', error);
       }
     }
   };
@@ -149,7 +147,6 @@ const UserManagement = () => {
   const handleCheckboxChange = (event, id) => {
     if (event.target.checked) {
       setSelectedUsers((prevSelected) => [...prevSelected, id]);
-      console.log(selectedUsers);
     } else {
       setSelectedUsers((prevSelected) => prevSelected.filter((userId) => userId !== id));
     }
@@ -158,7 +155,6 @@ const UserManagement = () => {
   // 회원 삭제
   const handleDeleteUsers = () => {
     if (selectedUsers.length === 0) {
-      console.log('선택된 회원이 없습니다.');
       return;
     }
     setShowPopup(true); // 팝업 표시
@@ -175,7 +171,6 @@ const UserManagement = () => {
       alert('회원이 삭제되었습니다.');
     } catch (error) {
       await Functions.handleApiError(error);
-      console.log('회원 삭제 실패:', error);
     }
 
     setShowPopup(false); 
