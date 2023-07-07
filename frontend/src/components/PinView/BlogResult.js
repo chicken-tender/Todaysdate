@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import noImage from "../../resource/no_image.jpeg";
 
 const Container = styled.div`
   display: flex;
@@ -145,7 +146,8 @@ const BlogResult = ({ selectedTag, firstPlaceTag }) => {
         currentItems.map((blog, index) => (
           <a href={blog.url} target="_blank" rel="noreferrer">
             <SubContainer>
-              <img src={blog.thumbnail} alt="블로그 썸네일 이미지" />
+            {blog.thumbnail ? (<img src={blog.thumbnail} alt="블로그 썸네일 이미지" />)
+            : (<img src={noImage} alt="블로그 썸네일 이미지" />)}
               <StyledContent>
                 <h2>{stripHtml(blog.title)}</h2>
                 <p>{stripHtml(blog.contents)}</p>
