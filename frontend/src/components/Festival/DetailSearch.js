@@ -30,7 +30,9 @@ const PopupContainer = styled.div`
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
-  
+  @media (max-width: 600px) {
+    width: 86%;
+  }
 `;
 
 const SearchContainer = styled.div`
@@ -40,7 +42,7 @@ const SearchContainer = styled.div`
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   @media (max-width: 400px) {
-    width: 90%;
+    padding: 25px 30px;
   }
 
   input {
@@ -52,6 +54,9 @@ const SearchContainer = styled.div`
     padding: 15px 10px;
     width: 280px;
     margin-right: 8px;
+    @media (max-width: 600px) {
+      width: 220px;
+    }
   }
 
   .wrapper {
@@ -61,9 +66,9 @@ const SearchContainer = styled.div`
 `;
 
 
-const DetailButton = ({ onSearch }) => { 
+const DetailButton = ({ onSearch }) => {
   const [showPopup, setShowPopup] = useState(false);
-  const [searchValue, setSearchValue] = useState(""); 
+  const [searchValue, setSearchValue] = useState("");
   const inputRef = useRef(null);
 
   const handleButtonClick = () => {
@@ -71,7 +76,7 @@ const DetailButton = ({ onSearch }) => {
   };
 
   const handleSearch = () => {
-    onSearch(searchValue); 
+    onSearch(searchValue);
   };
 
   const closePopup = () => {
@@ -83,34 +88,34 @@ const DetailButton = ({ onSearch }) => {
   };
 
   return (
-    <>
-      <StyledDetailButton onClick={handleButtonClick}>
-        <BsSliders />
-      </StyledDetailButton>
-      {showPopup && (
-        <PopupContainer onClick={closePopup}>
-          <SearchContainer>
-            <div className="wrapper">
-              <input
-                type="text"
-                ref={inputRef}
-                onClick={handleInputClick}
-                onChange={(e) => setSearchValue(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    handleSearch(); // 엔터 키 입력 시 검색 실행
-                  }
-                }}
-                placeholder="축제 이름을 검색하세요!"
-              />
-              <Box sx={{ backgroundColor: '#FF62AD', borderRadius: '15%', padding: '3px' }}>
-                <SearchIcon sx={{ color: '#FFFFFF', fontSize: 30  , cursor: 'pointer'}} onClick={handleSearch} />
-              </Box>
-            </div>
-          </SearchContainer>
-        </PopupContainer>
-      )}
-    </>
+      <>
+        <StyledDetailButton onClick={handleButtonClick}>
+          <BsSliders />
+        </StyledDetailButton>
+        {showPopup && (
+            <PopupContainer onClick={closePopup}>
+              <SearchContainer>
+                <div className="wrapper">
+                  <input
+                      type="text"
+                      ref={inputRef}
+                      onClick={handleInputClick}
+                      onChange={(e) => setSearchValue(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          handleSearch(); // 엔터 키 입력 시 검색 실행
+                        }
+                      }}
+                      placeholder="축제 이름을 검색하세요!"
+                  />
+                  <Box sx={{ backgroundColor: '#FF62AD', borderRadius: '15%', padding: '3px' }}>
+                    <SearchIcon sx={{ color: '#FFFFFF', fontSize: 30  , cursor: 'pointer'}} onClick={handleSearch} />
+                  </Box>
+                </div>
+              </SearchContainer>
+            </PopupContainer>
+        )}
+      </>
   );
 };
 
