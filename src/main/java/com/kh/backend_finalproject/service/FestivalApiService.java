@@ -25,7 +25,7 @@ public class FestivalApiService {
     private final FestivalRepository festivalRepository;
     private final FestivalService festivalService;
 
-    @Scheduled(cron = "0 0 0 * * *")
+    @Scheduled(cron = "0 * * * * *")
     public void startScheduler() {
         // 1. API에서 축제 정보 가져오기
         String response = festivalService.searchFestival();
@@ -53,4 +53,10 @@ public class FestivalApiService {
     public List<FestivalDto> getAllFestivals() {
         return festivalRepository.findAll().stream().map(FestivalDto::new).collect(Collectors.toList());
     }
+
+    @Scheduled(cron = "0 * * * * *")
+    public void startSchedulerImage() {
+
+    }
+
 }
