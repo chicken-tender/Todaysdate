@@ -35,7 +35,7 @@ const SortButtonsContainer = styled.div`
 `;
 
 const FestivalPage = () => {
-  const [sortBy, setSortBy] = useState("name");
+  const [sortBy, setSortBy] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("");
   const [isButtonClicked, setIsButtonClicked] = useState(false);
