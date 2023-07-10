@@ -5,7 +5,6 @@ import BookmarkedPin from "./BookmarkedPin";
 import { FolderContainer } from "./BookmarkMain";
 import Functions from "../../../util/Functions";
 import UserAxiosApi from "../../../api/UserAxiosApi";
-import { Button } from "../MyPinReply/PinListWeb";
 import styled from "styled-components";
 import UserPopUp, { PopUpMessage } from "../../../util/modal/UserPopUp";
 
@@ -29,6 +28,19 @@ const DetailPageContainer = styled.div`
   }
   @media screen and (max-width: 768px) {
     margin: 0 auto;
+  }
+`;
+
+const Button = styled.button`
+  margin-top: 10px;
+  line-height: 1.4rem;
+  background-color: var(--line-color);
+  border: 1px solid var(--hover-color);
+  border-radius: 6px;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--point-color);
+    color: #ffffff;
   }
 `;
 
