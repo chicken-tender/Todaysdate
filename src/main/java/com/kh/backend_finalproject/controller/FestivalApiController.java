@@ -15,7 +15,7 @@ import java.util.List;
 public class FestivalApiController {
     private final FestivalApiService festivalApiService;
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<FestivalDto> getAllFestivals() {
         return festivalApiService.getAllFestivals();
     }

@@ -37,5 +37,15 @@ public class FestivalDto {
     }
 
     public FestivalDto(FestivalTb festivalTb) {
+        this.contentId = festivalTb.getContentId();
+        this.addr1 = festivalTb.getAddr1();
+        this.areacode = festivalTb.getAreacode();
+        this.eventstartdate = festivalTb.getEventstartdate();
+        this.eventenddate = festivalTb.getEventenddate();
+        this.firstimage = festivalTb.getFirstimage();
+        this.title = festivalTb.getTitle();
+        this.tel = festivalTb.getTel();
+        this.mapx = festivalTb.getMapx();
+        this.mapy = festivalTb.getMapy();
     }
 }

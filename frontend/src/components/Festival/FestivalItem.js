@@ -89,14 +89,14 @@ const Location = styled.p`
 
 
 const FestivalItem = ({ item, currentPage }) => {
-  const startDate = item.eventStartDate;
-  const endDate = item.eventEndDate;
+  const startDate = item.eventstartdate;
+  const endDate = item.eventenddate;
 
   const formattedStartDate = `${startDate.slice(0, 4)}.${startDate.slice(4, 6)}.${startDate.slice(6)}`;
   const formattedEndDate = `${endDate.slice(0, 4)}.${endDate.slice(4, 6)}.${endDate.slice(6)}`;
 
   const duration = `${formattedStartDate} ~ ${formattedEndDate}`;
-  const thumbnailSrc = item.mainImage || DefaultImage; // 이미지 없을 경우 기본 이미지 사용
+  const thumbnailSrc = item.firstimage || DefaultImage; // 이미지 없을 경우 기본 이미지 사용
   
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -104,7 +104,7 @@ const FestivalItem = ({ item, currentPage }) => {
   
   return (
     <ItemContainer>
-      {item.mainImage ? (
+      {item.firstimage ? (
         <Thumbnail src={thumbnailSrc} alt={item.title} />
       ) : (
         <Thumbnail src={DefaultImage} alt="기본 이미지" />
@@ -114,7 +114,7 @@ const FestivalItem = ({ item, currentPage }) => {
       </Overlay>
       <Title>{item.title}</Title>
       <Duration>{duration}</Duration>
-      <Location>{item.address}</Location>
+      <Location>{item.addr1}</Location>
     </ItemContainer>
   );
 };
