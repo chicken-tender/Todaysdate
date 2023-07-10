@@ -53,10 +53,4 @@ public class FestivalApiService {
     public List<FestivalDto> getAllFestivals() {
         return festivalRepository.findAll().stream().map(FestivalDto::new).collect(Collectors.toList());
     }
-
-    @Scheduled(cron = "0 * * * * *")
-    public void startSchedulerImage() {
-
-    }
-
 }
