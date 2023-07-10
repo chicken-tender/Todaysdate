@@ -13,7 +13,6 @@ const FestivalAPI = ({ children, page, contentId }) => {
     const fetchData = async () => {
         try {
             const response = await FestivalAxiosApi.fetchFestivals();
-            console.log("🐯 : " + JSON.stringify(response.data, null, 2));
 
             const responseData = response.data; // 서버에서 받아온 응답 데이터
 

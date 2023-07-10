@@ -110,13 +110,13 @@ const Title = styled.p`
 
 const Item = ({ item, page }) => (
   <ItemContainer>
-    {item.mainImage ? (
-      <Thumbnail src={item.mainImage}  /> 
+    {item.firstimage ? (
+      <Thumbnail src={item.firstimage}  />
     ) : (
       <Thumbnail src={DefaultImage} />
     )}
     <Overlay>
-      <StyledLink to={`/festival-info/${item.contentid}?page=${page}`}>상세보기</StyledLink>
+      <StyledLink to={`/festival-info/${item.contentId}?page=${page}`}>상세보기</StyledLink>
     </Overlay>
     <Title>{item.title}</Title>
   </ItemContainer>

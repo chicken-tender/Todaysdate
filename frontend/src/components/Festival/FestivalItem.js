@@ -110,7 +110,7 @@ const FestivalItem = ({ item, currentPage }) => {
         <Thumbnail src={DefaultImage} alt="기본 이미지" />
       )}
       <Overlay>
-        <StyledLink to={`/festival-info/${item.contentid}?page=${page}`}>상세보기</StyledLink>
+        <StyledLink to={`/festival-info/${item.contentId}?page=${page}`}>상세보기</StyledLink>
       </Overlay>
       <Title>{item.title}</Title>
       <Duration>{duration}</Duration>

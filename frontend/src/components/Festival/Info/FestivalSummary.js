@@ -96,7 +96,7 @@ const ShareButton = styled.button`
 `;
 
 const FestivalSummary = ({ page, contentId, apiData }) => {
-  const festivalData = apiData.find(item => item.contentid.toString() === contentId);
+  const festivalData = apiData.find(item => item.contentId.toString() === contentId);
 
   const [currentUrl, setCurrentUrl] = useState("");
   useEffect(() => {
@@ -109,8 +109,8 @@ const FestivalSummary = ({ page, contentId, apiData }) => {
     <Container>
       <Line />
       <Summary>
-        {festivalData && festivalData.mainImage ? (
-          <PosterImage src={festivalData.mainImage} />
+        {festivalData && festivalData.firstimage ? (
+          <PosterImage src={festivalData.firstimage} />
         ) : (
           <PosterImage src={DefaultImage} />
         )}
@@ -118,15 +118,15 @@ const FestivalSummary = ({ page, contentId, apiData }) => {
         <div>
           <InfoItem>
             <CalendarMonthIcon />
-            <span> 시작일 :  {festivalData && `${festivalData.eventStartDate.slice(0, 4)}년 ${festivalData.eventStartDate.slice(4, 6)}월 ${festivalData.eventStartDate.slice(6)}일`}  </span>
+            <span> 시작일 :  {festivalData && `${festivalData.eventstartdate.slice(0, 4)}년 ${festivalData.eventstartdate.slice(4, 6)}월 ${festivalData.eventstartdate.slice(6)}일`}  </span>
           </InfoItem>
           <InfoItem>
             <CalendarMonthIcon />
-            <span> 종료일 : {festivalData && `${festivalData.eventEndDate.slice(0, 4)}년 ${festivalData.eventEndDate.slice(4, 6)}월 ${festivalData.eventEndDate.slice(6)}일`}</span>
+            <span> 종료일 : {festivalData && `${festivalData.eventenddate.slice(0, 4)}년 ${festivalData.eventenddate.slice(4, 6)}월 ${festivalData.eventenddate.slice(6)}일`}</span>
           </InfoItem>
           <InfoItem>
             <LocationOnIcon />
-            <span>{festivalData && festivalData.address}</span>
+            <span>{festivalData && festivalData.addr1}</span>
           </InfoItem>
           <InfoItem>
             <CallIcon />

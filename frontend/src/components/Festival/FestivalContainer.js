@@ -52,7 +52,7 @@ const FestivalContainer = ({ apiData, selectedCity, selectedStatus, isButtonClic
 
     // 도시가 선택되었을 경우 도시별로 필터링
     if (isButtonClicked && selectedCity && selectedCity !== 0) {
-      filtered = filtered.filter((festival) => festival.areaCode === selectedCity.toString());
+      filtered = filtered.filter((festival) => festival.areacode === selectedCity.toString());
       handleSearchOrFilter();
     }
     // 개최여부가 선택되었을 경우 개최여부 필터링
@@ -66,11 +66,11 @@ const FestivalContainer = ({ apiData, selectedCity, selectedStatus, isButtonClic
       if (selectedStatus === 1) {
         filtered = filtered.filter(
           (festival) =>
-            parseInt(festival.eventStartDate) <= formattedDate &&
-            parseInt(festival.eventEndDate) >= formattedDate
+            parseInt(festival.eventstartdate) <= formattedDate &&
+            parseInt(festival.eventenddate) >= formattedDate
         );
       } else if (selectedStatus === 2) {
-        filtered = filtered.filter((festival) => parseInt(festival.eventStartDate) > formattedDate);
+        filtered = filtered.filter((festival) => parseInt(festival.eventstartdate) > formattedDate);
       }
       handleSearchOrFilter();
     }
@@ -105,7 +105,7 @@ const FestivalContainer = ({ apiData, selectedCity, selectedStatus, isButtonClic
     if (sortBy === "name") {
       sortedData.sort((a, b) => a.title.localeCompare(b.title));
     } else if (sortBy === "date") {
-      sortedData.sort((a, b) => parseInt(a.eventStartDate) - parseInt(b.eventStartDate));
+      sortedData.sort((a, b) => parseInt(a.eventstartdate) - parseInt(b.eventstartdate));
     }
     setSearchedData(sortedData);
   }, [sortBy]);

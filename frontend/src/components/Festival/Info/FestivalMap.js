@@ -4,12 +4,12 @@ const FestivalMap = ({ contentId, apiData }) => {
   useEffect(() => {
     if (apiData) {
       const festivalData = apiData.find(
-        (item) => item.contentid.toString() === contentId
+        (item) => item.contentId.toString() === contentId
       );
 
       if (festivalData) {
-        const latitude = festivalData.coordinates.latitude;
-        const longitude = festivalData.coordinates.longitude;
+        const latitude = festivalData.mapy;
+        const longitude = festivalData.mapx;
 
         const script = document.createElement("script");
         script.src =

@@ -40,10 +40,10 @@ const FestivalDate = styled.span`
 `;
 
 const FestivalHeader = ({ contentId, apiData }) => {
-  const festivalData = apiData && apiData.find((item) => item.contentid.toString() === contentId);
+  const festivalData = apiData && apiData.find((item) => item.contentId.toString() === contentId);
 
-  const startDate = festivalData && festivalData.eventStartDate;
-  const endDate = festivalData && festivalData.eventEndDate;
+  const startDate = festivalData && festivalData.eventstartdate;
+  const endDate = festivalData && festivalData.eventenddate;
   const formattedStartDate = startDate && `${startDate.slice(0, 4)}.${startDate.slice(4, 6)}.${startDate.slice(6)}`;
   const formattedEndDate = endDate && `${endDate.slice(0, 4)}.${endDate.slice(4, 6)}.${endDate.slice(6)}`;
   const duration = formattedStartDate && formattedEndDate && `${formattedStartDate} ~ ${formattedEndDate}`;
