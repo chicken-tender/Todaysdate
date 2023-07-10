@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
-import MuiCheckbox from "../../Join/Checkbox";
+import { TitleLink, StyledCheckbox, Button} from "./CommonStyle";
 
 const ParentContainer = styled.div`
   width: 80%;
@@ -19,6 +18,7 @@ const ParentContainer = styled.div`
     }  
   }
 `;
+
 const Table = styled.table`
   width: 100%;
   th,
@@ -35,36 +35,6 @@ const Table = styled.table`
   }
   .checkbox_align {
     text-align: right;
-  }
-`;
-
-export const TitleLink = styled(Link)`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  color: var(--text-color);
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
-export const StyledCheckbox = styled(MuiCheckbox)`
-  width: 1rem;
-  height: 1rem;
-`;
-
-export const Button = styled.button`
-  margin-top: 10px;
-  align-self: flex-start;
-  line-height: 1.4rem;
-  background-color: var(--line-color);
-  border: 1px solid var(--hover-color);
-  border-radius: 6px;
-  cursor: pointer;
-  &:hover {
-    background-color: var(--point-color);
-    color: #ffffff;
   }
 `;
 

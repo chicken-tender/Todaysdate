@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import ProfileBar2 from "./ProfileBar2";
 import { PinReplyNav } from "../Navs";
-import { StyledCheckbox, Button, TitleLink } from "./PinListWeb";
-import { RowWrapper, MapContainer, SelectAllButton } from "./PinListMobile";
+import { StyledCheckbox, Button, TitleLink, RowWrapper, MapContainer, SelectAllButton } from "./CommonStyle";
 import { useNavigate } from "react-router-dom";
 import Pagination from "./Pagination";
 import UserAxiosApi from "../../../api/UserAxiosApi";
@@ -37,12 +36,12 @@ const ParentContainer = styled.div`
   }
 `;
 
-const Content = styled.span`
+const Content = styled.p`
   font-size: 0.8rem;
   color: var(--input-text-color);
 `;
 
-const StyledP = styled.span`
+const StyledP = styled.p`
   font-size: 0.8rem;
   color: var(--text-color);
 `;
