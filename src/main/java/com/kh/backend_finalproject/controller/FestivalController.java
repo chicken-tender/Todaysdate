@@ -1,5 +1,6 @@
 package com.kh.backend_finalproject.controller;
 
+import com.kh.backend_finalproject.service.FestivalApiService;
 import com.kh.backend_finalproject.service.FestivalService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class FestivalController {
 
     private final FestivalService festivalService;
+    private final FestivalApiService festivalApiService;
 
     @GetMapping("/")
     public ResponseEntity<String> searchFestival() {
