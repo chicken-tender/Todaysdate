@@ -34,7 +34,7 @@ const FestivalContainer = ({ apiData, selectedCity, selectedStatus, isButtonClic
 
   const [filteredData, setFilteredData] = useState([]);
   const [searchedData, setSearchedData] = useState([]);
-  const [dataLoaded, setDataLoaded] = useState(false); 
+  const [dataLoaded, setDataLoaded] = useState(false);
   const [filterApplied, setFilterApplied] = useState(false);
 
   const handlePageChange = (newPage) => {
@@ -53,34 +53,30 @@ const FestivalContainer = ({ apiData, selectedCity, selectedStatus, isButtonClic
     // 도시가 선택되었을 경우 도시별로 필터링
     if (isButtonClicked && selectedCity && selectedCity !== 0) {
       filtered = filtered.filter((festival) => festival.areacode === selectedCity.toString());
-      handleSearchOrFilter();
     }
     // 개최여부가 선택되었을 경우 개최여부 필터링
     if (isButtonClicked && selectedStatus && selectedStatus !== 0) {
       const currentDate = new Date();
       const formattedDate = parseInt(
-        `${currentDate.getFullYear()}${String(currentDate.getMonth() + 1).padStart(2, "0")}${String(
-          currentDate.getDate()
-        ).padStart(2, "0")}`
+          `${currentDate.getFullYear()}${String(currentDate.getMonth() + 1).padStart(2, "0")}${String(
+              currentDate.getDate()
+          ).padStart(2, "0")}`
       );
       if (selectedStatus === 1) {
         filtered = filtered.filter(
-          (festival) =>
-            parseInt(festival.eventstartdate) <= formattedDate &&
-            parseInt(festival.eventenddate) >= formattedDate
+            (festival) =>
+                parseInt(festival.eventstartdate) <= formattedDate && parseInt(festival.eventenddate) >= formattedDate
         );
       } else if (selectedStatus === 2) {
         filtered = filtered.filter((festival) => parseInt(festival.eventstartdate) > formattedDate);
       }
+    }
+    if (isButtonClicked) {
       handleSearchOrFilter();
     }
-    // 필터링 후 페이지를 1로 설정
-    if(filterApplied) {
-    setCurrentPage(1);
-    }
-   // 검색어가 입력되었을 경우 검색어 필터링
+    // 검색어가 입력되었을 경우 검색어 필터링
     setFilteredData(filtered);
-  }, [apiData, selectedCity, selectedStatus, isButtonClicked, filterApplied]);
+  }, [apiData, selectedCity, selectedStatus, isButtonClicked]);
 
   useEffect(() => {
     let dataToSearch = searchKeyword ? apiData : filteredData;
@@ -88,56 +84,58 @@ const FestivalContainer = ({ apiData, selectedCity, selectedStatus, isButtonClic
     if (searchKeyword) {
       const keyword = searchKeyword.toLowerCase();
       dataToSearch = dataToSearch.filter((festival) => festival.title.toLowerCase().includes(keyword));
+    }
+
+    if (searchKeyword) {
       handleSearchOrFilter();
     }
-    
-    // 검색 후 페이지를 1로 설정
-    if(filterApplied) {
-    setCurrentPage(1);
-    }
     setSearchedData(dataToSearch);
-    setDataLoaded(true)
-  }, [apiData, searchKeyword, filteredData, filterApplied]);
+    setDataLoaded(true);
+  }, [apiData, searchKeyword, filteredData]);
 
   useEffect(() => {
-
-    let sortedData = [...searchedData];
+    let sortedData = [...filteredData];
     if (sortBy === "name") {
       sortedData.sort((a, b) => a.title.localeCompare(b.title));
     } else if (sortBy === "date") {
       sortedData.sort((a, b) => parseInt(a.eventstartdate) - parseInt(b.eventstartdate));
     }
     setSearchedData(sortedData);
-  }, [sortBy]);
+  }, [sortBy, filteredData]);
+
+  useEffect(() => {
+    // 필터 또는 검색어가 변경되면 페이지를 1로 설정
+    setCurrentPage(1);
+  }, [selectedCity, selectedStatus, searchKeyword]);
 
   // 한 페이지에 6개씩 아이템을 표시
   const startIndex = (currentPage - 1) * 6;
-  const endIndex = currentPage * 6;  
+  const endIndex = currentPage * 6;
   const itemsToShow = searchedData.slice(startIndex, endIndex);
 
   const shouldShowPagination = searchedData.length >= 6;
 
   return (
-    <div>
-       {dataLoaded && searchedData.length > 0 ? (
-        <>
-          <Container>
-            {itemsToShow.map((item, index) => (
-              <FestivalItem key={index} item={item} currentPage={currentPage} />
-            ))}
-          </Container>
-          {shouldShowPagination && (
-            <Pagination
-              currentPage={currentPage}
-              totalPages={Math.ceil(searchedData.length / 6)}
-              onPageChange={handlePageChange}
-            />
-          )}
-        </>
-      ) : (
-        dataLoaded && <NoResultContainer>데이터가 없습니다 🥲</NoResultContainer>
-      )}
-    </div>
+      <div>
+        {dataLoaded && searchedData.length > 0 ? (
+            <>
+              <Container>
+                {itemsToShow.map((item, index) => (
+                    <FestivalItem key={index} item={item} currentPage={currentPage} />
+                ))}
+              </Container>
+              {shouldShowPagination && (
+                  <Pagination
+                      currentPage={currentPage}
+                      totalPages={Math.ceil(searchedData.length / 6)}
+                      onPageChange={handlePageChange}
+                  />
+              )}
+            </>
+        ) : (
+            dataLoaded && <NoResultContainer>데이터가 없습니다 🥲</NoResultContainer>
+        )}
+      </div>
   );
 };
 
