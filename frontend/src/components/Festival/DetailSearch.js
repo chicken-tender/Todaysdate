@@ -77,6 +77,7 @@ const DetailButton = ({ onSearch }) => {
 
   const handleSearch = () => {
     onSearch(searchValue);
+    setShowPopup(false);
   };
 
   const closePopup = () => {
