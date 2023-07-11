@@ -14,6 +14,11 @@ const ParentContainer = styled.div`
     white-space: nowrap;
     max-width: 280px;
   }
+   .empty_pin {
+     margin-top: 2rem;
+     text-align: center;
+     font-size: 1.4rem;
+   }
   @media screen and (max-width: 768px) {
     width: 80%;
     .title {
@@ -28,39 +33,46 @@ const PinListMobile = ({ isPostSelected, posts, selectAll, handleCheckboxChange,
   return (
     <>
       <ParentContainer>
-        {posts.map((post) => (
-          <div key={post.postNum}>
-            <MapContainer>
-              <RowWrapper>
+        {posts.length === 0 ? (
+          <div className="empty_pin">작성된 게시글이 없습니다. 😰</div>
+        ) : (
+          <>
+            {posts.map((post) => (
+              <div key={post.postNum}>
+                <MapContainer>
+                  <RowWrapper>
+                    <StyledCheckbox
+                      type="checkbox"
+                      checked={isPostSelected(post.postNum)}
+                      onChange={(event) =>
+                        handleCheckboxChange(event, post.postNum)
+                      }
+                    />
+                    <TitleLink to={`/post/${post.postNum}`}>
+                      <span className="title">{post.title}</span>
+                      <span className="view_count">[{post.viewCount}]</span>
+                    </TitleLink>
+                  </RowWrapper>
+                  <RowWrapper gap="1rem">
+                    <p style={{ marginLeft: "2rem" }}>{post.nickname}</p>
+                    <p>{formatDate(post.writeDate)}</p>
+                  </RowWrapper>
+                </MapContainer>
+              </div>
+            ))}
+            <RowWrapper gap="1rem">
+              <SelectAllButton>
                 <StyledCheckbox
                   type="checkbox"
-                  checked={isPostSelected(post.postNum)}
-                  onChange={(event) => handleCheckboxChange(event, post.postNum)}
+                  checked={selectAll}
+                  onChange={handleSelectAllChange}
                 />
-                <TitleLink to={`/post/${post.postNum}`}>
-                  <span className='title'>{post.title}</span><span className='view_count'>[{post.viewCount}]</span>
-                </TitleLink>
-              </RowWrapper>
-              <RowWrapper gap="1rem">
-                <p style={{marginLeft: '2rem'}}>{post.nickname}</p>
-                <p>{formatDate(post.writeDate)}</p>
-              </RowWrapper>
-            </MapContainer>
-          </div>
-        ))}
-        <RowWrapper gap="1rem">
-          <SelectAllButton>
-            <StyledCheckbox
-              type="checkbox"
-              checked={selectAll}
-              onChange={handleSelectAllChange}
-            />
-              <p>전체선택</p>
-            </SelectAllButton>
-            <Button onClick={handleDeleteBtn}>
-              삭제
-            </Button>
-          </RowWrapper>        
+                <p>전체선택</p>
+              </SelectAllButton>
+              <Button onClick={handleDeleteBtn}>삭제</Button>
+            </RowWrapper>
+          </>
+        )}
       </ParentContainer>
     </>
   );
