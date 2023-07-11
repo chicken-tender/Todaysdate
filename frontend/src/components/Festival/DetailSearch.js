@@ -17,6 +17,9 @@ const StyledDetailButton = styled.button`
   font-size: 2.5rem;
   opacity: 100%;
   cursor: pointer;
+  @media (max-width: 400px) {
+    width: 50%;
+  }
 `;
 
 const PopupContainer = styled.div`
@@ -30,9 +33,6 @@ const PopupContainer = styled.div`
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
-  @media (max-width: 600px) {
-    width: 86%;
-  }
 `;
 
 const SearchContainer = styled.div`
@@ -42,7 +42,7 @@ const SearchContainer = styled.div`
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   @media (max-width: 400px) {
-    padding: 25px 30px;
+    width:90%;
   }
 
   input {
