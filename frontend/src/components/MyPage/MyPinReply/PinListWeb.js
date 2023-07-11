@@ -12,6 +12,11 @@ const ParentContainer = styled.div`
     max-width: 280px;
     margin-left: 1rem;
   }
+  .empty_pin {
+   margin-top: 2rem;
+   text-align: center;
+   font-size: 1.4rem;
+  }
   @media screen and (max-width: 1200px) {
     .author {
       display: none;
@@ -49,49 +54,53 @@ const PinListWeb = ({
 }) => {
   return (
     <ParentContainer>
-      <Table>
-        <thead>
-          <tr>
-            <th className="checkbox_align">
-              <StyledCheckbox
-                type="checkbox"
-                checked={selectAll}
-                onChange={handleSelectAllChange}
-              />
-            </th>
-            {/* <th>글번호</th> */}
-            <th>제목</th>
-            <th className="author">작성자</th>
-            <th>작성일</th>
-            <th>조회수</th>
-          </tr>
-        </thead>
-        <tbody>
-          {posts.map((post) => (
-            <tr key={post.postNum}>
-              <td className="checkbox_align">
-                <StyledCheckbox
-                  type="checkbox"
-                  checked={isPostSelected(post.postNum)}
-                  onChange={(event) =>
-                    handleCheckboxChange(event, post.postNum)
-                  }
-                />
-              </td>
-              {/* <td>{post.postNum}</td> */}
-              <td className="title_align">
-                <TitleLink to={`/post/${post.postNum}`}>
-                  <span className="title">{post.title}</span>
-                </TitleLink>
-              </td>
-              <td className="author">{post.nickname}</td>
-              <td>{formatDate(post.writeDate)}</td>
-              <td>{post.viewCount}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-      <Button onClick={handleDeleteBtn}>삭제</Button>
+      {posts.length === 0 ? (
+        <div className="empty_pin">작성된 게시글이 없습니다. 😰</div>
+      ) : (
+        <>
+          <Table>
+            <thead>
+              <tr>
+                <th className="checkbox_align">
+                  <StyledCheckbox
+                    type="checkbox"
+                    checked={selectAll}
+                    onChange={handleSelectAllChange}
+                  />
+                </th>
+                <th>제목</th>
+                <th className="author">작성자</th>
+                <th>작성일</th>
+                <th>조회수</th>
+              </tr>
+            </thead>
+            <tbody>
+              {posts.map((post) => (
+                <tr key={post.postNum}>
+                  <td className="checkbox_align">
+                    <StyledCheckbox
+                      type="checkbox"
+                      checked={isPostSelected(post.postNum)}
+                      onChange={(event) =>
+                        handleCheckboxChange(event, post.postNum)
+                      }
+                    />
+                  </td>
+                  <td className="title_align">
+                    <TitleLink to={`/post/${post.postNum}`}>
+                      <span className="title">{post.title}</span>
+                    </TitleLink>
+                  </td>
+                  <td className="author">{post.nickname}</td>
+                  <td>{formatDate(post.writeDate)}</td>
+                  <td>{post.viewCount}</td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+          <Button onClick={handleDeleteBtn}>삭제</Button>
+        </>
+      )}
     </ParentContainer>
   );
 };
