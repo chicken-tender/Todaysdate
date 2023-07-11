@@ -20,6 +20,7 @@ const MenuButton = styled.button`
   border: 1px solid var(--point-color);
   background-color: #fff;
   font-size: 0.9rem;
+  color: black;
   cursor: pointer;
 
   @media (max-width: 400px) {
