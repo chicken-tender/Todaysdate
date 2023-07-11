@@ -47,7 +47,6 @@ const PinList = () => {
           new Date(b.writeDate) - new Date(a.writeDate)
         );
         setPosts(sortedPosts);
-        console.log("🍒 UserPosts :", response);
       } catch (error) {
         await Functions.handleApiError(error);
         const newToken = Functions.getAccessToken();
@@ -75,7 +74,6 @@ const PinList = () => {
   const handleConfirmBtn = async () => {
     try {
       const response = await UserAxiosApi.deletePosts(selectedPosts, token);
-      console.log('📌 삭제된 글번호:', response);
 
       setPosts((prevPosts) =>
         prevPosts.filter((post) => !selectedPosts.includes(post.postNum))
@@ -114,7 +112,6 @@ const PinList = () => {
   const handleCheckboxChange = (event, postNum) => {
     if (event.target.checked) {
       setSelectedPosts((prevSelected) => [...prevSelected, postNum]);
-      console.log(selectedPosts);
     } else {
       setSelectedPosts((prevSelected) => prevSelected.filter((id) => id !== postNum));
     }

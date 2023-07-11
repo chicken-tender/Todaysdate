@@ -76,7 +76,6 @@ const ReplyList = () => {
           return new Date(b.writeDate) - new Date(a.writeDate);
         });
         setReplies(sortedReplies);
-        console.log("🍒 UserReplies :", response);
       } catch (error) {
         await Functions.handleApiError(error);
         const newToken = Functions.getAccessToken();
@@ -103,7 +102,6 @@ const ReplyList = () => {
   const handleConfirmBtn = async () => {
     try {
       const response = await UserAxiosApi.deleteReplies(selectedReplies, token);
-      console.log("📌 삭제된 댓글번호:", response);
 
       setReplies((prevReplies) =>
         prevReplies.filter((reply) => !selectedReplies.includes(reply.replyNum))
@@ -139,7 +137,6 @@ const ReplyList = () => {
   const handleCheckboxChange = (event, replyNum) => {
     if (event.target.checked) {
       setSelectedReplies((prevSelected) => [...prevSelected, replyNum]);
-      console.log(selectedReplies);
     } else {
       setSelectedReplies((prevSelected) =>
         prevSelected.filter((id) => id !== replyNum)

@@ -40,7 +40,6 @@ const BookmarkPage = () => {
   const getUserFolders = useCallback(async () => {
     try {
       const response = await UserAxiosApi.userBookmarkFolders(token);
-      console.log("🍒 폴더: ", response.data);
       setFolders(response.data);
     } catch (error) {
       await Functions.handleApiError(error);
@@ -79,7 +78,6 @@ const BookmarkPage = () => {
         newFolder
       );
       if (response.status === 201) {
-        console.log(response);
         setShowPopup(false);
         await getUserFolders();
       } else {

@@ -81,7 +81,6 @@ const BookmarkDetailPage = () => {
       try {
         const response = await UserAxiosApi.userBookmarks(token, folderId);
         setBookmarks(response.data);
-        console.log("🍒 북마크 : ", response.data);
       } catch (error) {
         await Functions.handleApiError(error);
         const newToken = Functions.getAccessToken();
@@ -97,7 +96,6 @@ const BookmarkDetailPage = () => {
   const handleConfirmDeleteBtn = async () => {
     try {
       const response = await UserAxiosApi.deleteBookmarkFolder(token, folderId);
-      console.log(response);
       if (response.request.status === 200) {
         navigate("/mypage/bookmarks");
       } else {

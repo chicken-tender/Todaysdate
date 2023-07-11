@@ -9,10 +9,10 @@ const WebSocketStomp = () => {
   const { userRegion, userId } = useContext(UserContext);
   
   useEffect(() => {
-    const sock = new SockJS("http://localhost:8111/ws", null, {
+    const sock = new SockJS("http://54.180.33.180:8111/ws", null, {
       transports: ["websocket"],
       headers: {
-        Origin: "http://localhost:8111"
+        Origin: "http://54.180.33.180:8111"
       }
     });
     const newClient = new Client({

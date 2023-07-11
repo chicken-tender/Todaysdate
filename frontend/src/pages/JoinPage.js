@@ -90,7 +90,6 @@ const JoinPage = () => {
     const pwdRegex = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
     const pwdCurrent = e.target.value;
     setInputPwd(pwdCurrent);
-    console.log('❗️ pwd : ', inputPwd)
     setIsPwd(pwdRegex.test(pwdCurrent));
   }
 
@@ -98,7 +97,6 @@ const JoinPage = () => {
   const onChangeConPwd = (e) => {
     const conPwdCurrent = e.target.value;
     setInputConPwd(conPwdCurrent);
-    console.log('❗️ conPwd : ', inputConPwd)
     setIsConPwd(conPwdCurrent === inputPwd)
   }
 

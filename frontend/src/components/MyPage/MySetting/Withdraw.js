@@ -113,13 +113,11 @@ const Withdraw = ({ children }) => {
       localStorage.clear();
       navigate("/");
     } catch (error) {
-      console.log("회원 탈퇴 실패");
       setShowPopup(false);
     }
   };
 
   const handleWithdrawCancel = () => {
-    console.log("회원 탈퇴 취소");
     setShowPopup(false);
   };
 

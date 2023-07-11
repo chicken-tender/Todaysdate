@@ -131,7 +131,6 @@ const EditInfo = () => {
         const response = await UserAxiosApi.userInfo(token);
         updateUserInfo(response);
         setCurrentInfo(response.data);
-        console.log("🍒 UserInfo : ", response.data);
       } catch (error) {
         await Functions.handleApiError(error);
         const newToken = Functions.getAccessToken();
@@ -221,17 +220,16 @@ const EditInfo = () => {
       imageUrl ===
       "https://firebasestorage.googleapis.com/v0/b/todaysdate-final-project.appspot.com/o/profile%2Fdefaultprofile.jpg?alt=media"
     ) {
-      console.log("기본 프로필사진, 삭제 ❌");
       return;
     }
 
     const imageRef = ref(storage, imageUrl);
     deleteObject(imageRef)
       .then(() => {
-        console.log("프사 삭제 성공");
+        console.log("삭제 성공");
       })
       .catch((error) => {
-        console.log("프사 삭제 실패", error);
+        console.log("삭제 실패", error);
       });
   };
 
