@@ -16,7 +16,8 @@ const StyledButton = styled.button`
     opacity: ${props => props.disabled ? '100%' : '50%'};
   }
   @media (max-width: 400px) {
-    width: 80%;
+    width: 70%;
+    font-size: 1em;
   }
 `;
 
