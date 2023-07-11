@@ -13,7 +13,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 30px;
+  padding: 20px;
   flex-wrap: wrap;
   gap: 15px;
 
@@ -51,7 +51,7 @@ const FestivalPage = () => {
       setSortBy("name"); // 이름순으로 정렬할 경우 sortBy 상태를 "name"으로 업데이트
     }
   };
-  
+
 
   const handleFilter = (city, status) => {
     setSelectedCity(city);
@@ -78,7 +78,7 @@ const FestivalPage = () => {
           <SelectBox onFilter={handleFilter} />
           <ButtonWrapper>
             <Button onClick={handleButtonClick}>둘러보기</Button>
-            <DetailButton onSearch={handleSearch} /> 
+            <DetailButton onSearch={handleSearch} />
           </ButtonWrapper>
         </Container>
         <SortButtonsContainer>
@@ -92,7 +92,7 @@ const FestivalPage = () => {
               selectedCity={isButtonClicked ? savedCity : ""}
               selectedStatus={isButtonClicked ? saveStatus : ""}
               isButtonClicked={isButtonClicked}
-              searchKeyword={searchKeyword} 
+              searchKeyword={searchKeyword}
               page={currentPage}
             />
           )}

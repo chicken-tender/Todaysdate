@@ -21,7 +21,7 @@ const Separator = styled.div`
 const SortButtonsContainer = styled.div`
   display: flex;
   align-items: center;
-  padding: 0 35px;
+  padding: 0 15px;
 
   ${Button} {
     padding: 0px 8px;
