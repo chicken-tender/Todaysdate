@@ -101,10 +101,12 @@ const Desc = () => {
       return;
     }
     try {
+      const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent);
       const response = await KakaoAxiosApi.readyPay(token);
+      console.log("🐻‍ : " + response.data);
       if (response.data) {
         let a = document.createElement("a");
-        a.href = response.data.next_redirect_pc_url;
+        a.href = isMobile ? response.data.next_redirect_mobile_url : response.data.next_redirect_pc_url;
         a.target = "_blank";
         document.body.appendChild(a);
         a.click();
