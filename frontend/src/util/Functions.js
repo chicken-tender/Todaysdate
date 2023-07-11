@@ -40,7 +40,7 @@ const Functions = {
 
     // 401 에러시 토큰 재발급 함수 실행하는 함수
     handleApiError: async(error) => {
-      if (error.response && error.response.status === 401) {
+      if (error.response || error.response.status === 401 || error.response.status === 405 ) {
         // 토큰이 만료되었거나 유효하지 않은 경우
         await Functions.tokenRenewal();
       } else {

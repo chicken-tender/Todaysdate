@@ -84,14 +84,11 @@ import axios from "axios";
     // 🍒 회원의 알림 수신 상태 변경  
     updateNotificationStatus: async (token, newStatus) => {
       try {
-        return await axios.put("/mypage/notification-status", {
+        return await axios.put("/mypage/notification-status", { newStatus } , {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + token
           },
-          params: {
-            newStatus: newStatus
-          }
         });
       } catch (error) {
         throw error;
