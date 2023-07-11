@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const KH_DOMAIN = "http://localhost:8111"
+const KH_DOMAIN = "http://todaysdate.site"
 
 // 이 프로젝트 전역에서 두루 쓰이는 함수를 모아놓았습니다.
 const Functions = {
