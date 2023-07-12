@@ -22,8 +22,8 @@ const StyledFolder = styled(Link)`
     border: 3px solid #ff62ad;
   }
   @media screen and (max-width: 768px) {
-    width: 130px;
-    height: 130px;
+    width: 7rem;
+    height: 7rem;
     align-items: center;
     justify-content: center;
     margin: 6px auto;

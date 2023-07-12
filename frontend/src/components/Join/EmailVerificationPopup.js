@@ -18,7 +18,7 @@ const PopupContainer = styled.div`
   align-items: center;
   gap: 20px;
   @media screen and (max-width: 768px) {
-    width: 90%;
+    width: 95%;
   }
 `;
 
