@@ -11,11 +11,12 @@ const ItemContainer = styled.div`
   border-radius: 15px;
   height: 320px;
   padding-bottom: 40px;
-  
+  overflow: hidden;
+
   @media (max-width: 768px) {
     width: calc(50% - 2%);
   }
-  
+
   @media (max-width: 600px) {
     width: calc(100% - 2%);
   }
@@ -36,7 +37,10 @@ const Overlay = styled.div`
   &:hover {
     opacity: 1;
   }
-
+  @media (max-width: 600px) {
+    min-width: 1rem;
+    overflow: hidden;
+  }
 
 `;
 const StyledLink = styled(Link)`
@@ -66,6 +70,10 @@ const Thumbnail = styled.img`
   border-radius: 15px;
   margin-bottom: 10px;
   margin-right: 100px;
+  @media (max-width: 600px) {
+    min-width: 1rem;
+    overflow: hidden;
+  }
 `;
 
 const Title = styled.p`
