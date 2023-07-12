@@ -23,7 +23,7 @@ const Container = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     justify-content:center;
-    width: 95%;
+    width: 90%;
   }
 `;
 

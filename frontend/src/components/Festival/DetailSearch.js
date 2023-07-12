@@ -19,6 +19,7 @@ const StyledDetailButton = styled.button`
   cursor: pointer;
   @media (max-width: 400px) {
     width: 50%;
+    padding: 0;
   }
 `;
 
