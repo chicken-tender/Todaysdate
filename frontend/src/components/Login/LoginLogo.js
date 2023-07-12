@@ -11,7 +11,7 @@ const StyledLink = styled(Link)`
 
 const LoginLogo = ({ size }) => {
   return (
-    <StyledLink to='/login' size={size}>
+    <StyledLink to='/' size={size}>
       <img className="navbar__logo" src={logo} alt="오늘의 데이트 로고" />
     </StyledLink>
   );

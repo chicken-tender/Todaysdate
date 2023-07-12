@@ -34,7 +34,7 @@ const BtnStyle = styled.button`
   background-color: var(--point-color);
   color: #fff;
   font-weight: 900;
-  font-size: 1.4em;
+  font-size: 1em;
   opacity: 50%;
   border-radius: 8px;
   cursor: pointer;

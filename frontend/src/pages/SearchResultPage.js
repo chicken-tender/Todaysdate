@@ -82,6 +82,10 @@ const PostTitle = styled.div`
   h1 {
     font-weight: 800;
     font-size: 1.3em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 350px;
   }
   p {
     font-size: 1.1em;
