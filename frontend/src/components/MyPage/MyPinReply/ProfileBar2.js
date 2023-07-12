@@ -43,7 +43,15 @@ const TotalCount = styled.h2`
     font-weight: 600;
   }
   @media screen and (max-width: 768px) {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+  }
+`;
+
+const StyledContainer = styled(Container)`
+  @media screen and (max-width: 768px) {
+    width: 50%;
+    min-width: 20rem;
+    align-self: center;
   }
 `;
 
@@ -57,10 +65,10 @@ const ProfileBar2 = () => {
   } = useContext(UserContext);
 
   return (
-    <Container width="60%" margin="0 auto" minWidth="370px">
+    <StyledContainer width="60%" margin="0 auto">
       <RowWrapper
         responsiveWidth="70%"
-        responsiveGap="5px"
+        responsiveGap="0.5rem"
         gap="20px"
         margin="10px auto"
       >
@@ -72,7 +80,7 @@ const ProfileBar2 = () => {
               <Membership src={Star} alt="멤버쉽 이미지" />
             )}
           </Nickname>
-          <RowWrapper justifyContent="center" gap="10px">
+          <RowWrapper justifyContent="center" gap="0.5rem">
             <TotalCount>
               총 게시물<span className="count"> {userPostCount}</span>개
             </TotalCount>
@@ -82,7 +90,7 @@ const ProfileBar2 = () => {
           </RowWrapper>
         </ColumnWrapper>
       </RowWrapper>
-    </Container>
+    </StyledContainer>
   );
 };
 export default ProfileBar2;
