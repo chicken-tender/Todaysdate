@@ -12,8 +12,6 @@ const Container = styled.div`
   margin: 0 auto;
 
   @media screen and (max-width: 600px) {
-    width: 100%;
-    margin: 0 auto;
     justify-content: center;
   }
 `;
