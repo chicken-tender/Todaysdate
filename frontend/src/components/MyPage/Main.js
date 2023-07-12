@@ -23,7 +23,7 @@ const ProfileContainer = styled.div`
 const FolderContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 2.5rem;
   width: 55%;
   justify-content: flex-end;
   @media screen and (max-width: 768px) {
