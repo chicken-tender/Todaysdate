@@ -10,6 +10,9 @@ const Button = styled.button`
   background-color: #fff;
   border: none;
   cursor: pointer;
+  @media (max-width: 600px) {
+    font-size: 0.9em;
+  }
 `;
 
 const Separator = styled.div`

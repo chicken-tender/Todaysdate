@@ -15,8 +15,8 @@ const StyledButton = styled.button`
   &:hover {
     opacity: ${props => props.disabled ? '100%' : '50%'};
   }
-  @media (max-width: 400px) {
-    width: 70%;
+  @media (max-width: 600px) {
+    width: 75%;
     font-size: 1em;
   }
 `;
