@@ -26,10 +26,6 @@ const FestivalMap = ({ contentId, apiData }) => {
             options
           )
 
-          const zoomControl = new window.kakao.maps.ZoomControl();
-          map.addControl(zoomControl, window.kakao.maps.ControlPosition.RIGHT_TOP);
-          map.setZoomable(false);
-
           const markerPosition = { lat: latitude, lng: longitude };
           const marker = new window.kakao.maps.Marker({
             position: new window.kakao.maps.LatLng(
