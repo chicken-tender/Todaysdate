@@ -24,7 +24,7 @@ const FestivalMap = ({ contentId, apiData }) => {
           const map = new window.kakao.maps.Map(
             document.getElementById("map"),
             options
-          );
+          )
 
           const markerPosition = { lat: latitude, lng: longitude };
           const marker = new window.kakao.maps.Marker({
