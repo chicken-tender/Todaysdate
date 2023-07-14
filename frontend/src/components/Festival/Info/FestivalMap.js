@@ -24,7 +24,11 @@ const FestivalMap = ({ contentId, apiData }) => {
           const map = new window.kakao.maps.Map(
             document.getElementById("map"),
             options
-          );
+          )
+
+          const zoomControl = new window.kakao.maps.ZoomControl();
+          map.addControl(zoomControl, window.kakao.maps.ControlPosition.RIGHT_TOP);
+          map.setZoomable(false);
 
           const markerPosition = { lat: latitude, lng: longitude };
           const marker = new window.kakao.maps.Marker({
