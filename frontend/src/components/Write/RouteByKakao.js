@@ -55,7 +55,11 @@ const RouteByKakao = ({ setPins }) => {
 
     const mapObj = new window.kakao.maps.Map(mapRef.current, options);
     mapObj.setDraggable(true);
+    mapObj.setZoomable(false);
     setMap(mapObj);
+
+    let zoomControl = new window.kakao.maps.ZoomControl();
+    mapObj.addControl(zoomControl, window.kakao.maps.ControlPosition.RIGHT);
 
     window.kakao.maps.event.addListener(mapObj, "click", (mouseEvent) => {
       addMarker(mouseEvent.latLng, mapObj, clickMarkerIndex, setClickMarkerIndex);
