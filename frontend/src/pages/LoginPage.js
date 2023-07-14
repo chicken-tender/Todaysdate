@@ -12,15 +12,15 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 70px;
+  margin-top: 60px;
   border-radius: 30px;
   gap: 20px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   border: 1px solid #ddd;
   @media screen and (max-width:768px) {
     width: 100%;
-    margin-top: 30px;
     border: none;
+    margin-top: 0;
   }
 `;
 

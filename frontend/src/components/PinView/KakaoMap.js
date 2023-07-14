@@ -22,6 +22,11 @@ const KakaoMap = ({ postData }) => {
       level: 3
     };
     const map = new window.kakao.maps.Map(mapRef.current, options);
+    map.setZoomable(false);
+
+    let zoomControl = new window.kakao.maps.ZoomControl();
+    map.addControl(zoomControl, window.kakao.maps.ControlPosition.RIGHT);
+
 
     let markers = [];
     if(postData.pins && Array.isArray(postData.pins)) {
