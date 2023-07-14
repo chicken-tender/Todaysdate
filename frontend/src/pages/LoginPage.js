@@ -11,7 +11,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 60px;
   border-radius: 30px;
   gap: 20px;
@@ -21,11 +21,14 @@ const Container = styled.div`
     width: 100%;
     border: none;
     margin-top: 0;
+    height: 100vh;
   }
 `;
 
 const Image = styled.img`
-  width: 100%; 
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
 `;
