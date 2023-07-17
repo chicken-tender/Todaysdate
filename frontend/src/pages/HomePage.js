@@ -6,6 +6,7 @@ import City from "../components/Home/City";
 import CityPost from "../components/Home/CityPost";
 import Ad from "../components/Home/Ad";
 import { UserContext } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -22,9 +23,18 @@ const PostWrapper = styled.div`
   gap: 20px;
 `;
 
+const StyledPolicy = styled.div`
+  font-weight: bold;
+  color: var(--input-text-color);
+  font-size: 0.85em;
+  cursor: pointer;
+`;
+
 const HomePage = () => {
   const { isMembership } = useContext(UserContext);
   const [showAd, setShowAd] = useState(isMembership === 'FREE');
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     setShowAd(isMembership === 'FREE');
@@ -42,6 +52,7 @@ const HomePage = () => {
         <PostWrapper>
           <CityPost selectedCity={selectedCity} />
         </PostWrapper>
+        <StyledPolicy onClick={() => navigate("/policy")}>개인정보처리방침</StyledPolicy>
       </AppLayout>
     </>
   );

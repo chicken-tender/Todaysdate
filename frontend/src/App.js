@@ -24,6 +24,7 @@ import EditPage from "./pages/EditPage";
 import PrivateRoute from "./util/PrivateRoute";
 import PrivateRouteAdmin from "./util/PrivateRouteAdmin";
 import PushAlert from "./components/Home/PushAlert";
+import PolicyPage from "./pages/PolicyPage";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -68,6 +69,7 @@ function App() {
             <Route path="/user-policy" element={<UserPolicy />} />
             <Route path="/user-agreements" element={<UserAgreements />} />
             <Route path="/search" element={<PrivateRoute><SearchResultPage /></PrivateRoute>} />
+            <Route path="/policy" element={<PolicyPage />} />
           </Routes>
           <PushAlert />
         </Router>
