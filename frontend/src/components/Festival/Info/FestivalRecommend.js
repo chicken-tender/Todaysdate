@@ -53,7 +53,6 @@ const ItemContainer = styled.div`
   }
   @media (max-width: 400px) {
     width: 90%;
-
   }
 `
 
@@ -108,19 +107,18 @@ const Title = styled.p`
   text-align: center;
 `;
 
-const Item = ({ item, page }) => (
-  <ItemContainer>
-    {item.firstimage ? (
-      <Thumbnail src={item.firstimage}  />
-    ) : (
-      <Thumbnail src={DefaultImage} />
-    )}
-    <Overlay>
-      <StyledLink to={`/festival-info/${item.contentId}?page=${page}`}>상세보기</StyledLink>
-    </Overlay>
-    <Title>{item.title}</Title>
-  </ItemContainer>
-);
+const Item = ({ item, page }) => {
+  const imageUrl = item.firstimage ? item.firstimage.replace('http://', 'https://') : DefaultImage;
+  return (
+    <ItemContainer>
+      <Thumbnail src={imageUrl} />
+      <Overlay>
+        <StyledLink to={`/festival-info/${item.contentId}?page=${page}`}>상세보기</StyledLink>
+      </Overlay>
+      <Title>{item.title}</Title>
+    </ItemContainer>
+  );
+};
 
 const Recommend = ({ page, apiData }) => {
   const getRandomItems = (data, count) => {

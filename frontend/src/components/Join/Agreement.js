@@ -131,7 +131,7 @@ const Agreement = ({ onAgreementChange }) => {
                 <p className='term_title'>제1조 (목적)</p>
                 <ul className='ul_square'>
                   <li>
-                    이 약관은, 오늘의 데이트(이하 "회사”)가 제공하는 서비스('http://todaysdate.site'이하 “서비스”)를 이용하고자 하는 이용자(이하 "회원")간의 권리와 의무 및 기타 제반사항을 명확히 하는 것을 목적으로 합니다.
+                    이 약관은, 오늘의 데이트(이하 "회사”)가 제공하는 서비스('https://todaysdate.site:8080'이하 “서비스”)를 이용하고자 하는 이용자(이하 "회원")간의 권리와 의무 및 기타 제반사항을 명확히 하는 것을 목적으로 합니다.
                   </li>
                 </ul>
               </div>
@@ -232,7 +232,7 @@ const Agreement = ({ onAgreementChange }) => {
             {isAgreement2Open && (
               <AgreementContent>
               <h1>개인정보처리방침</h1>
-              <p>오늘의 데이트 ('http://todaysdate.site'이하 "회사") 은(는) 개인정보보호법에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리방침을 수립·공개합니다.</p>
+              <p>오늘의 데이트 ('https://todaysdate.site:8080'이하 "회사") 은(는) 개인정보보호법에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리방침을 수립·공개합니다.</p>
               <p>■ 이 개인정보처리방침은 2023년 7월 1일 부터 적용됩니다.</p>
               <div className='term 1'>
                 <p className='term_title'>제1조(개인정보의 처리 목적)</p>

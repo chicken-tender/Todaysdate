@@ -107,61 +107,61 @@ const FestivalSummary = ({ page, contentId, apiData }) => {
 
   return (
     <Container>
-      <Line />
-      <Summary>
-        {festivalData && festivalData.firstimage ? (
-          <PosterImage src={festivalData.firstimage} />
-        ) : (
-          <PosterImage src={DefaultImage} />
-        )}
+        <Line />
+        <Summary>
+          {festivalData && festivalData.firstimage ? (
+            <PosterImage src={festivalData.firstimage.replace('http://', 'https://')} />
+          ) : (
+            <PosterImage src={DefaultImage} />
+          )}
 
-        <div>
-          <InfoItem>
-            <CalendarMonthIcon />
-            <span> 시작일 :  {festivalData && `${festivalData.eventstartdate.slice(0, 4)}년 ${festivalData.eventstartdate.slice(4, 6)}월 ${festivalData.eventstartdate.slice(6)}일`}  </span>
-          </InfoItem>
-          <InfoItem>
-            <CalendarMonthIcon />
-            <span> 종료일 : {festivalData && `${festivalData.eventenddate.slice(0, 4)}년 ${festivalData.eventenddate.slice(4, 6)}월 ${festivalData.eventenddate.slice(6)}일`}</span>
-          </InfoItem>
-          <InfoItem>
-            <LocationOnIcon />
-            <span>{festivalData && festivalData.addr1}</span>
-          </InfoItem>
-          <InfoItem>
-            <CallIcon />
-            <span>{festivalData && festivalData.tel}</span>
-          </InfoItem>
-          <InfoItem>
-          <ShareIcon/>
-          <FacebookShareButton url={currentUrl} quote={festivalData?.title}>
-            <img
-              src={FacebookIcon}
-              alt="Facebook"
-              style={{ width: "30px", height: "30px" }}
-            />
-          </FacebookShareButton>
-          <TwitterShareButton url={currentUrl} title={festivalData?.title}>
-            <img
-              src={TwitterIcon}
-              alt="Twitter"
-              style={{ width: "30px", height: "30px" }}
-            />
-          </TwitterShareButton>
-          <LineShareButton url={currentUrl} subject={festivalData?.title}>
-            <img
-              src={LineIcon}
-              alt="Line"
-              style={{ width: "30px", height: "30px" }}
-            />
-          </LineShareButton>
-          </InfoItem>
-        </div>
-        
-      </Summary>
-      <Line />
-      <Title>행사 위치</Title>
-    </Container>
+          <div>
+            <InfoItem>
+              <CalendarMonthIcon />
+              <span> 시작일 :  {festivalData && `${festivalData.eventstartdate.slice(0, 4)}년 ${festivalData.eventstartdate.slice(4, 6)}월 ${festivalData.eventstartdate.slice(6)}일`}  </span>
+            </InfoItem>
+            <InfoItem>
+              <CalendarMonthIcon />
+              <span> 종료일 : {festivalData && `${festivalData.eventenddate.slice(0, 4)}년 ${festivalData.eventenddate.slice(4, 6)}월 ${festivalData.eventenddate.slice(6)}일`}</span>
+            </InfoItem>
+            <InfoItem>
+              <LocationOnIcon />
+              <span>{festivalData && festivalData.addr1}</span>
+            </InfoItem>
+            <InfoItem>
+              <CallIcon />
+              <span>{festivalData && festivalData.tel}</span>
+            </InfoItem>
+            <InfoItem>
+            <ShareIcon/>
+            <FacebookShareButton url={currentUrl} quote={festivalData?.title}>
+              <img
+                src={FacebookIcon}
+                alt="Facebook"
+                style={{ width: "30px", height: "30px" }}
+              />
+            </FacebookShareButton>
+            <TwitterShareButton url={currentUrl} title={festivalData?.title}>
+              <img
+                src={TwitterIcon}
+                alt="Twitter"
+                style={{ width: "30px", height: "30px" }}
+              />
+            </TwitterShareButton>
+            <LineShareButton url={currentUrl} subject={festivalData?.title}>
+              <img
+                src={LineIcon}
+                alt="Line"
+                style={{ width: "30px", height: "30px" }}
+              />
+            </LineShareButton>
+            </InfoItem>
+          </div>
+
+        </Summary>
+        <Line />
+        <Title>행사 위치</Title>
+      </Container>
   );
 };
 

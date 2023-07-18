@@ -42,19 +42,20 @@ public class WebSecurityConfig implements WebMvcConfigurer {
                 .httpBasic().disable()
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-
+                .and()
+                .requiresChannel()
+                .anyRequest()
+                .requiresSecure()
                 .and()
                 .exceptionHandling()
                 .authenticationEntryPoint(jwtAuthenticationEntryPoint)
                 .accessDeniedHandler(jwtAccessDeniedHandler)
-
                 .and()
                 .authorizeRequests()
-                .antMatchers("/", "/static/**", "/auth/**", "/join/**", "/kakao/**", "/ws/**", "/css/**", "/js/**", "/img/**", "/festival/**", "/favicon.ico", "/api/**").permitAll()
+                .antMatchers("/", "/static/**", "/auth/**", "/join/**", "/kakao/**", "/ws/**", "/css/**", "/js/**", "/img/**", "/festival/**", "/favicon.ico", "/api/**", "/.well-known/pki-validation/**").permitAll()
                 .antMatchers("/v2/api-docs", "/swagger-resources/**", "/swagger-ui.html", "/webjars/**", "/swagger/**", "/sign-api/exception").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .anyRequest().authenticated()
-
                 .and()
                 .apply(new JwtSecurityConfig(tokenProvider));
 

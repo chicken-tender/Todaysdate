@@ -9,10 +9,10 @@ const WebSocketStomp = () => {
   const { userRegion, userId } = useContext(UserContext);
   
   useEffect(() => {
-    const sock = new SockJS("http://todaysdate.site/ws", null, {
+    const sock = new SockJS("https://todaysdate.site:8080/ws", null, {
       transports: ["websocket"],
       headers: {
-        Origin: "http://todaysdate.site"
+        Origin: "https://todaysdate.site:8080"
       }
     });
     const newClient = new Client({

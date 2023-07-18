@@ -45,9 +45,9 @@ public class KakaoPayService {
         parameters.add("quantity", 1);
         parameters.add("total_amount", 1990);
         parameters.add("tax_free_amount", 0);
-        parameters.add("approval_url", "http://todaysdate.site/kakao/auth/callback");
-        parameters.add("cancel_url", "http://todaysdate.site/membership/cancel");
-        parameters.add("fail_url", "http://todaysdate.site/membership/fail");
+        parameters.add("approval_url", "https://todaysdate.site:8080/kakao/auth/callback");
+        parameters.add("cancel_url", "https://todaysdate.site:8080/membership/cancel");
+        parameters.add("fail_url", "https://todaysdate.site:8080/membership/fail");
 
         HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(parameters, this.getHeaders());
 

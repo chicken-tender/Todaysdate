@@ -104,7 +104,7 @@ const FestivalItem = ({ item, currentPage }) => {
   const formattedEndDate = `${endDate.slice(0, 4)}.${endDate.slice(4, 6)}.${endDate.slice(6)}`;
 
   const duration = `${formattedStartDate} ~ ${formattedEndDate}`;
-  const thumbnailSrc = item.firstimage || DefaultImage; // 이미지 없을 경우 기본 이미지 사용
+  const thumbnailSrc = (item.firstimage ? item.firstimage.replace('http://', 'https://') : DefaultImage); // 이미지 없을 경우 기본 이미지 사용
   
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
