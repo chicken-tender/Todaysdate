@@ -69,5 +69,5 @@ frontend/yarn-error.log*
 src/main/resources/static/static/css/*
 src/main/resources/static/static/js/*
 
-src/main/resources/static/.well-known/*
+src/main/resources/static/.well-known/pki-validation/B966D47D6215385C58601FF0AA96832C.txt
 src/main/resources/keystore.p12
