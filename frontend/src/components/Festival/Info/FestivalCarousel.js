@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import 'slick-carousel/slick/slick.css';
@@ -53,7 +54,7 @@ const Carousel = ({ contentId }) => {
       if (item) {
         const extractedImages = item.map((imageItem) => ({
           contentid: imageItem.contentid,
-          originimgurl: imageItem.originimgurl,
+          originimgurl: imageItem.originimgurl.replace("http://", "https://"),
         }));
 
         setImages(extractedImages);
