@@ -34,6 +34,7 @@
 - JWT(Access Token & Refresh Token)와 Password Encoder(Spring Security) 적용하여 사용자 인증 및 권한 부여
 - 모바일과 PC 환경에서 편안하게 사용할 수 있도록 미디어 쿼리 적용
 - 사용자 편의를 위하여 메인 게시글 6개 단위 조회(페이지 네이션)
+- 사용자 데이터의 보안과 신뢰성을 보장하기 위해 HTTPS 적용
 
 ### 메인 페이지
 - 게시글 검색
