@@ -10,8 +10,8 @@
 
 ## 배포 주소
 
-> **Web URL** : [http://todaysdate.site](http://todaysdate.site) <br>
-> **App URL** : [http://](http://)<br>
+> **Web URL** : [https://todaysdate.site:8080](https://todaysdate.site:8080) <br>
+> **App URL** : [https://play.google.com/store/apps/details?id=com.kh.todaysDate_react_native](https://play.google.com/store/apps/details?id=com.kh.todaysDate_react_native)<br>
 
 ## 팀원 소개
 
